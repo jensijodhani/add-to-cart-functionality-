@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Meesho | | Login Page</title>
+	<link rel="shortcut icon" href="img/bag.png" type="image/x-icon">
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
+
+		body {
+			background-color: #acabc0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+		}
+
+		.login-box {
+			background-color: white;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+			width: 300px;
+		}
+
+		h1 {
+			text-align: center;
+			margin-bottom: 20px;
+			font-size: 24px;
+			color: #635BFF;
+		}
+
+		.textbox {
+			margin-bottom: 15px;
+		}
+
+		.textbox input {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			outline: none;
+		}
+
+		.textbox input:focus {
+			border-color: #635BFF;
+		}
+
+		.btn {
+			width: 100%;
+			padding: 10px;
+			border: none;
+			border-radius: 4px;
+			background-color: #635BFF;
+			color: white;
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		.btn:hover {
+			background-color: #635BFF;
+		}
+
+		.forgot {
+			display: block;
+			text-align: center;
+			margin-top: 10px;
+			color: #007bff;
+			text-decoration: none;
+		}
+
+		.forgot:hover {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="login-box">
+			<h1>Login</h1>
+			<div class="textbox">
+				<input type="text" id="user" placeholder="Enter your username" required>
+			</div>
+			<div class="textbox">
+				<input type="password" id="pass" placeholder="Enter your password" required>
+			</div>
+			<button type="submit" class="btn" onclick="submit()">Login</button>
+		</div>
+	</div>
+
+	<script>
+		const users = {
+			admin: { username: "admin", password: "123" },
+			user: { username: "user", password: "321" }
+		};
+
+		function submit() {
+			const username = document.getElementById("user").value;
+			const password = document.getElementById("pass").value;
+
+			if (!username || !password) {
+				alert("Please enter your username and password");
+				return;
+			}
+
+			if (username === users.admin.username && password === users.admin.password) {
+				window.location.href = "./admin pages/index.html"; 
+			} else if (username === users.user.username && password === users.user.password) {
+				window.location.href = "./user/user.html"; 
+			} else {
+				alert("Invalid username or password");
+			}
+		}
+	</script>
+
+
+</body>
+
+</html>
